@@ -90,7 +90,7 @@ def get_laser_embeddings(x: List[str], lang: str, laser=None) -> np.ndarray:
 
 
 def prep_xlm(en_x: List[str], es_x: List[str], cm_x: List[str], test_x: List[str], return_all_hiddens: bool = False):
-    xlmr = torch.hub.load('pytorch/fairseq', 'xlmr.large')
+    xlmr = torch.hub.load('pytorch/fairseq', 'xlmr.large', force_reload=True)
     xlmr.cuda()
     en_x = get_xlm_embeddings(en_x, xlmr, return_all_hiddens)
     es_x = get_xlm_embeddings(es_x, xlmr, return_all_hiddens)
